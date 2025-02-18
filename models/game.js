@@ -4,7 +4,8 @@ const gameSchema = new mongoose.Schema({
   name: { type: String, required: true },
   fileSize: { type: Number, required: true },
   released: Boolean,
-  genre: String
+  genre: String,
+  image: String
 });
 
 const Game = mongoose.model("Game", gameSchema);
