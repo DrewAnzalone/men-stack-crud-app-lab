@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <title><%= game.name %></title>
+</head>
+
+<body>
+  <h1><%= game.name %></h1>
+  <div id="game-grid">
+    <div class="game-card large"><% if (game.image) { %>
+      <img src="<%= game.image %>" alt="Splash art for <%= game.name %>">
+      <% } else { %>
+      <img src="/images/square-rounded-256.png" alt="blank square splash art">
+      <% } %>
+    </div>
+    <div>
+      <ul>
+        <li>Name: <%= game.name %></li>
+        <li>File size: <%= game.fileSize %></li>
+        <li>Released: <% if (game.released) {%>✅<%} else {%>⛔<%} %></li>
+        <li>Genre: <%= game.genre %></li>
+      </ul>
+    </div>
+  </div>
+  <form action="/games/<%=game._id%>/edit" method="GET">
+    <button type="submit">Edit <%= game.name %></button>
+  </form>
+  <p></p>
+  <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
+    <button type="submit">Delete <%= game.name %></button>
+  </form>
+  <p></p>
+  <a href="/games/">Back to Games</a>
+</body>
+
+</html>
