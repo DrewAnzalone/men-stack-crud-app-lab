@@ -1,0 +1,31 @@
+img {
+    border-radius: 10%;
+    max-width: 256px;
+    max-height: 256px;
+}
+
+#game-grid {
+    display: flex;
+}
+
+.game-card {
+    margin: 5px;
+}
+
+.game-name {
+    text-align: center;
+}
+
+.large * {
+    max-width: 512px;
+    max-height: 512px;
+}
+
+ul {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+li {
+    height:100%;
+}

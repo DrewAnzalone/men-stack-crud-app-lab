@@ -4,17 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Game List</title>
 </head>
 
 <body>
   <h1>Full Games List</h1>
   <a href="/games/new">Add New Game</a>
-  <ul>
+  <div>
+    <p></p>
+  </div>
+  <div id="game-grid">
     <% games.forEach(game => { %>
-    <!-- TODO format list display for a game -->
+    <div>
+      <a href="/games/<%= game._id %>">
+        <div class="game-card"><% if (game.image) { %>
+          <img src="<%= game.image %>" alt="Splash art for <%= game.name %>">
+          <% } else { %>
+          <img src="/images/square-rounded-256.png" alt="blank square splash art">
+          <% } %>
+        </div>
+        <div class="game-name"><%= game.name %></div>
+      </a>
+    </div>
     <% }); %>
-  </ul>
+  </div>
 </body>
 
 </html>
