@@ -47,7 +47,6 @@ app.get("/games/:id", async (req, res) => {
 app.post("/games", async (req, res) => {
   req.body.released = req.body.released === "on";
   req.body.image = await checkImage(req.body.image) ? req.body.image : "";
-  print(req.body.image);
   const game = await Game.create(req.body);
   res.render("games/show.ejs", { game });
 });
@@ -56,7 +55,6 @@ app.post("/games", async (req, res) => {
 app.put("/games/:id", async (req, res) => {
   req.body.released = req.body.released === "on";
   req.body.image = await checkImage(req.body.image) ? req.body.image : "";
-  print(req.body.image);
   await Game.findByIdAndUpdate(req.params.id, req.body);
   res.redirect(`/games/${req.params.id}`);
 })
