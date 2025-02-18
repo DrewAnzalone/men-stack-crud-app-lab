@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <title>Update <%= game.name %></title>
+</head>
+
+<body>
+  <h1>Edit <% game.name %></h1>
+  <form action="/games/<%= game._id %>?_method=PUT" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<%= game.name %>" />
+    <div><p></p></div>
+    <label for="fileSize">Size (in Mb):</label>
+    <input type="number" id="fileSize" name="fileSize" value="<%= game.fileSize %>" />
+    <div><p></p></div>
+    <label for="released">Released?</label>
+    <input type="checkbox" name="released" id="released" <% if (game.released) { %>checked<% } %> />
+    <div><p></p></div>
+    <label for="genre">Genre:</label>
+    <input type="text" name="genre" id="genre" value="<%= game.genre %>" />
+    <div><p></p></div>
+    <label for="image">Square Image URL (optional):</label>
+    <input type="text" name="image" id="image" value="<%= game.image %>">
+    <div><p></p></div>
+    <button type="submit">Update Game</button>
+    <div><p></p></div>
+  </form>
+  <a href="/games/">Back to Games</a>
+</body>
+
+</html>
